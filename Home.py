@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas
 
-st.set_page_config(layout="wide")
+st.set_page_config("Stephen Wise | Portfolio", layout="wide")
 col1, col2 = st.columns(2)
 
 
@@ -35,14 +35,23 @@ with col3:
         st.header(row["title"])
         st.write(row["description"])
         st.image("images/" + row["image"])
-        st.link_button("Open web app", row["url"])
-        st.write(f"[View Source Code on GitHub]({row['url']})")
+        left_button, right_button = st.columns(2)
+        with left_button:
+            st.link_button("Open web app", row["url"])
+        with right_button:
+            st.link_button("View code on GitHub", row["url"])
+        st.text("")
 
 with col4:
     for index, row in df[10:].iterrows():
         st.header(row["title"])
         st.write(row["description"])
         st.image("images/" + row["image"])
-        st.link_button("Open web app", row["url"])
-        st.write(f"[View Source Code on GitHub]({row['url']})")
+        left_button, right_button = st.columns(2)
+        with left_button:
+            st.link_button("Open web app", row["url"])
+        with right_button:
+            st.link_button("View code on GitHub", row["url"])
+        st.text("")
+        st.text("")
 
